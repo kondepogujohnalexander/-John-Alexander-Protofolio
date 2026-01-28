@@ -169,4 +169,4 @@ Feel free to fork this project and customize it for your own portfolio needs. If
 
 **Live Demo**: Open `index.html` in your browser to see the portfolio in action!
 
-**Contact**: john.kondepogu@email.com | [LinkedIn](https://linkedin.com/in/johnkondepogu) | [GitHub](https://github.com/johnkondepogu)
+**Contact**: kondepogujohnalexander@gmail.com | [LinkedIn](https://www.linkedin.com/in/kondepogu-john-alexander-aa0a3b332/) | [GitHub](https://github.com/kondepogujohnalexander)
