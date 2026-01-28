@@ -54,8 +54,50 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
+// Gallery lightbox functionality
+const galleryItems = document.querySelectorAll('.gallery-item');
+const lightbox = document.getElementById('lightbox');
+const lightboxClose = document.querySelector('.lightbox-close');
+
+galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const category = item.getAttribute('data-category');
+        const placeholder = item.querySelector('.gallery-placeholder');
+        const icon = placeholder.querySelector('i').className;
+        const text = placeholder.querySelector('span').textContent;
+        
+        const lightboxPlaceholder = document.querySelector('.lightbox-placeholder');
+        lightboxPlaceholder.innerHTML = `
+            <i class="${icon}"></i>
+            <p>${text}</p>
+            <small>Category: ${category}</small>
+        `;
+        
+        lightbox.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        closeLightbox();
+    }
+});
+
+function closeLightbox() {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeLightbox();
+    }
+});
+
 // Observe elements for scroll animations
-document.querySelectorAll('.skill-category, .project-card, .cert-item').forEach(el => {
+document.querySelectorAll('.skill-category, .project-card, .cert-item, .gallery-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
